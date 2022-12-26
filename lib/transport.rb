@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 require_relative "transport/version"
+require "hashie"
+require "oj" 
+require "typhoeus"
+
 
 module Transport
   class Error < StandardError; end
