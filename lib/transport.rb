@@ -85,7 +85,8 @@ module Transport
     end
 
     def self.log_coded_response(resp)
-      Rails.logger.debug "Response from #{resp[:url]}"
+      Rails.logger.debug "Response from #{resp[:url]}" if RESPONSE_LOGGING == 'LOG_RESPONSES'
+
       resp.except(:url).each do |key, value|
         unless key == :headers
           Rails.logger.debug "#{key.to_s.ljust(10, ' ')} : #{value}"
