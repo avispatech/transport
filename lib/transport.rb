@@ -55,7 +55,7 @@ module Transport
                                         body: body,
                                         headers: headers,
                                         params: params)
-      Rails.logger.info request.inspect
+      Rails.logger.debug request.inspect if RESPONSE_LOGGING == 'LOG_RESPONSES'
       run request
     end
 
