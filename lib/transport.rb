@@ -72,8 +72,8 @@ module Transport
     end
 
     def self.formatted_body(body)
-      JSON.parse(body, symbolize_names: true)
-    rescue JSON::ParserError => _e
+      return nil if body.nil?
+
       Oj.load(body)&.deep_symbolize_keys
     end
 
