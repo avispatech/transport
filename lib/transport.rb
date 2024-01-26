@@ -62,6 +62,7 @@ module Transport
     def self.code_response(rsp, headers)
       response_code = rsp.options[:response_code]
 
+      Rails.logger.debug rsp.options[:response_body] if response_code < 300
       {
         code: response_code,
         url: rsp.options[:effective_url],
